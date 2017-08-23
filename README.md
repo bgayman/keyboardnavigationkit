@@ -6,7 +6,7 @@ Provides navigators that manage keyboard focus for a list in an iOS application.
 The `TableNavigator` exposes accessors for the responder chain and coordinates behavior through a delegate. In the parent of a table view, typically a `UIViewController` subclass, create a `TableNavigator`:
 
 ```swift
-public class ListViewController {
+public class ListViewController : UIViewController {
   private let tableView = UITableView(style: .plain)
   var tableNavigator: TableNavigator!
    
