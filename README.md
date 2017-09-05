@@ -65,3 +65,13 @@ The `TableNavigator.possibleKeyCommands` creates an array of `UIKeyCommand` obje
 Overriding `target(forAction:, withSender:)` allows the `TableNavigator` to handle the key command actions. If `TableNavigator.target(forKeyCommandAction:)` is non-nil, return the target. If it is nil, then it means the action is not related to keyboard list navigation and should be handled by another object. In this example, we simply delegate to the super implementation.
 
 By default, `TableNavigator` generates key commands that do not have a `discoverabilityTitle` set. Do not attempt to customize the `UIKeyCommand` created by the navigator directly. If you want to control which key commands are generated, implement the appropriate `TableNavigatorDelegate` method: `tableNavigator(_, keyCommandDescriptorsFor:, defaultDescriptors:) -> [KeyCommandDescriptor]`.
+
+## To Be Completed (in no particular order)
+* Better documentation.
+* Add a `CollectionNavigator` for managing focus in a `UICollectionView`.
+* The framework is named generically as it will eventually support other keyboard navigation beyond lists, such as dismissing modal views and popping controllers in a navigation stack.
+* Probably a lot more I haven't thought about yet.
+
+## Project Motivation
+
+This framework was made out of a frustration that the iOS Spotlight system behavior was not exposed directly in UIKit. The initial design of the navigator's behavior mirrored the Spotlight behavior, and was extended where appropriate. The need for comprehensive keyboard navigation arose in the creation of my own app, [Visual Codes](http://visualcod.es). Get it on the App Store to try out a real-world use case of KeyboardNavigationKit.
