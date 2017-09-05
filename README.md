@@ -1,5 +1,7 @@
 # KeyboardNavigationKit
-Provides navigators that manage keyboard focus for a list in an iOS application. Users can highlight rows using the arrow keys, then press Enter to select. As the highlight focusing goes offscreen, the table view scrolls to continue the navigation.
+The kit provides navigators that manage keyboard focus for a list in an iOS application. Users can highlight rows using the arrow keys, then press Enter to select. As the focus highlight goes offscreen, the table view scrolls to continue the navigation. This behavior mirrors how iOS Spotlight works; KeyboardNavigationKit is a drop-in framework to achieve the same functionality in your own apps.
+
+**[Watch KeyboardNavigationKit Demo on YouTube](https://www.youtube.com/watch?v=zTc5e7zXEag).**
 
 ## Getting Started
 
