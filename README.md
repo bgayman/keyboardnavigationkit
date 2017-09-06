@@ -17,6 +17,8 @@ public class ListViewController : UIViewController {
     
     self.tableNavigator = TableNavigator(tableView: self.tableView, delegate: self)
   }
+  
+  ...
 }
 ```
 
@@ -44,7 +46,10 @@ The `tableNavigator(_, didUpdateFocus: completedNavigationWith:)` delegate inclu
 Finally, the view controller needs to expose key commands to the responder chain. The `TableNavigator` creates and responds to these events, but the view controller must delegate to it. To do this, implement the following two methods on the view controller.
 
 ```swift
- public override var keyCommands: [UIKeyCommand]? {
+public class ListViewController : UIViewController {
+    ...
+    
+    public override var keyCommands: [UIKeyCommand]? {
         get {
             return self.listKeyboardNavigator.possibleKeyCommands
         }
@@ -58,6 +63,9 @@ Finally, the view controller needs to expose key commands to the responder chain
             return super.target(forAction: action, withSender: sender)
         }
     }
+    
+    ...
+}
 ```
 
 The `TableNavigator.possibleKeyCommands` creates an array of `UIKeyCommand` objects to pass through the responder chain. This collection updates frequently and should not be externally cached. Simply override the `keyCommands` responder chain method and return the `TableNavigator.possibleKeyCommands` array.
