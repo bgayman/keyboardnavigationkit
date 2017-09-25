@@ -81,8 +81,10 @@ Overriding `target(forAction:, withSender:)` allows the `TableNavigator` to hand
 
 By default, `TableNavigator` generates key commands that do not have a `discoverabilityTitle` set. Do not attempt to customize the `UIKeyCommand` created by the navigator directly. If you want to control which key commands are generated, implement the appropriate `TableNavigatorDelegate` method: `tableNavigator(_, keyCommandDescriptorsFor:, defaultDescriptors:) -> [KeyCommandDescriptor]`.
 
+Customizing navigation can be achieved by implementing the `tableNavigator(_ navigator: TableNavigator, navigationResponseFor request: TableNavigator.NavigationRequest) -> TableNavigator.NavigationResponse` delegate. Although you can implement this however you wish, the framework provide convenient extensions on `UITableView` to generate next and previous index paths, including the logic to skip between sections. [Use the source code](https://github.com/benjaminmayo/keyboardnavigationkit/blob/master/Source/TableNavigator/TableNavigator.swift#L236) as an example as a starting point for creating responses.
+
 ## To Be Completed (in no particular order)
-* Better documentation.
+* Better documentation, including a sample project that demonstrates custom navigation responses.
 * Add a `CollectionNavigator` for managing focus in a `UICollectionView`.
 * The framework is named generically as it will eventually support other keyboard navigation beyond lists, such as dismissing modal views and popping controllers in a navigation stack.
 * Probably a lot more I haven't thought about yet.
